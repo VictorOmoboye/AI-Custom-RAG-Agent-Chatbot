@@ -12,10 +12,10 @@ A custom RAG (Retrieval-Augmented Generation) agent built with n8n that allows u
 ### Learning n8n Through Conversation  
 **Document used:** *“The Ultimate n8n Starter Kit (2025)”*
 
-**Problem**  
+### Problem
 Many people want to learn n8n and workflow automation, but long PDF guides can be overwhelming. Beginners struggle to search through pages for simple answers. Experienced users also lose time jumping between sections of documentation just to confirm one detail.
 
-**Solution**  
+### Solution  
 In this setup, the entire *“Ultimate n8n Starter Kit (2025)”* document is uploaded to Google Drive. n8n processes the file and stores its embeddings in Supabase.  
 A user can then message the Telegram bot with questions like:  
 - “How do I trigger a workflow?”  
@@ -69,4 +69,5 @@ Any situation where long documents slow people down fits well with this workflow
 
 ---
 
-## Project Structure
+## Project Screenshot
+### Workflow Template
