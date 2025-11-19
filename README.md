@@ -1,6 +1,6 @@
 # AI CUSTOM RAG AGENT CHATBOT
 ## Automated Document Q&A Agent For Instant Chat-based Knowledge Access
-<img width="2000" height="1346" alt="3" src="https://github.com/user-attachments/assets/658a34d8-b783-4b78-b8b5-7e6c8cbe67ec" />
+<img width="2000" height="1344" alt="The 6 Types of AI Agents You Should Know in 2025" src="https://github.com/user-attachments/assets/cf51eb3b-017c-4a8d-8450-e65833dcad0f" />
 
 ---
 ## Project Overview
