@@ -1,6 +1,6 @@
 # AI CUSTOM RAG AGENT CHATBOT
 ## Automated Document Q&A Agent For Instant Chat-based Knowledge Access
-<img width="2000" height="1344" alt="The 6 Types of AI Agents You Should Know in 2025" src="https://github.com/user-attachments/assets/cf51eb3b-017c-4a8d-8450-e65833dcad0f" />
+<img width="2000" height="1345" alt="The 6 Types of AI Agents You Should Know in 2025 (4)" src="https://github.com/user-attachments/assets/299fd415-aa46-47ad-a763-6e5c90e1c831" />
 
 ---
 ## Project Overview
@@ -71,3 +71,5 @@ Any situation where long documents slow people down fits well with this workflow
 
 ## Project Screenshot
 ### Workflow Template
+<img width="1748" height="828" alt="Untitled design (14)" src="https://github.com/user-attachments/assets/8b9a6b9b-e43b-4ab0-94fe-a50c54dd9bc1" />
+
