@@ -74,6 +74,7 @@ Any situation where long documents slow people down fits well with this workflow
 <img width="1748" height="828" alt="Untitled design (14)" src="https://github.com/user-attachments/assets/8b9a6b9b-e43b-4ab0-94fe-a50c54dd9bc1" />
 
 ---
+### Workflow Result
 As highlighted in the second screenshot:
 
 - It gives answers based on the document you uploaded and embedded in the database.
