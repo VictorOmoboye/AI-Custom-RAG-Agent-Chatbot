@@ -73,3 +73,18 @@ Any situation where long documents slow people down fits well with this workflow
 ### Workflow Template
 <img width="1748" height="828" alt="Untitled design (14)" src="https://github.com/user-attachments/assets/8b9a6b9b-e43b-4ab0-94fe-a50c54dd9bc1" />
 
+---
+As highlighted in the second screenshot:
+
+- It gives answers based on the document you uploaded and embedded in the database.
+- If the agent can’t find anything relevant in the document, it clearly states that first, then provides an LLM-generated answer.
+  
+![n8n_ai_agents_combined](https://github.com/user-attachments/assets/15084c8a-73e0-492f-8a73-fcfc4d173d25)
+
+---
+
+![n8n_nodes_debugging_workflow_combined](https://github.com/user-attachments/assets/623c979b-2203-4acc-b4a0-beb2636ae320)
+
+
+
+
