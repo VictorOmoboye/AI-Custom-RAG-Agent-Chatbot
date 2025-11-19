@@ -86,6 +86,19 @@ As highlighted in the second screenshot:
 
 ![n8n_nodes_debugging_workflow_combined](https://github.com/user-attachments/assets/623c979b-2203-4acc-b4a0-beb2636ae320)
 
+---
+### Superbase Vector Storage Table
+<img width="1748" height="1240" alt="Untitled design (15)" src="https://github.com/user-attachments/assets/2a4c7429-3e20-4c6f-8040-87e5f36c8187" />
+
+---
+### Superbase SQL Editor
+<img width="1748" height="1100" alt="Untitled design (16)" src="https://github.com/user-attachments/assets/87e8d99c-9bca-41a8-aaaa-1e46010a9e5c" />
+
+
+## THANK YOU
+For more information, you can contact me
+![image](https://github.com/user-attachments/assets/400a6867-54ca-409f-b788-6d12b14d0833)
+
 
 
 
