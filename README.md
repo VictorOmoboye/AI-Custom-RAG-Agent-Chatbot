@@ -1,8 +1,8 @@
 # AI CUSTOM RAG AGENT CHATBOT
 ## Automated Document Q&A Agent For Instant Chat-based Knowledge Access
+<img width="2000" height="1346" alt="3" src="https://github.com/user-attachments/assets/658a34d8-b783-4b78-b8b5-7e6c8cbe67ec" />
 
-
-
+---
 ## Project Overview
 A custom RAG (Retrieval-Augmented Generation) agent built with n8n that allows users to upload documents via Google Drive and query them through Telegram. The system uses Supabase for vector storage and PostgreSQL for conversation memory.
 
@@ -10,7 +10,7 @@ A custom RAG (Retrieval-Augmented Generation) agent built with n8n that allows u
 
 ## Case Study
 ### Learning n8n Through Conversation  
-**Document used:** *“The Ultimate n8n Starter Kit (2025)”*
+**Document used:** *“The Ultimate n8n Starter Kit (2025) by Nate Herk”*
 
 ### Problem
 Many people want to learn n8n and workflow automation, but long PDF guides can be overwhelming. Beginners struggle to search through pages for simple answers. Experienced users also lose time jumping between sections of documentation just to confirm one detail.
