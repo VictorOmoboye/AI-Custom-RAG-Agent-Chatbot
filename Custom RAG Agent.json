@@ -1,0 +1,376 @@
+{
+  "name": "Custom RAG Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1jQTzzWVmJQBSIahfdXL8dkS1M23Ueskt",
+          "mode": "list",
+          "cachedResultName": "n8n_ultimate_guide_(By Nate).pdf",
+          "cachedResultUrl": "https://drive.google.com/file/d/1jQTzzWVmJQBSIahfdXL8dkS1M23Ueskt/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -304,
+        128
+      ],
+      "id": "a7f4c27b-5178-4a79-9ed3-679b63a90062",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "f7bDr3nbqkie13dP",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": {
+          "__rl": true,
+          "value": "test",
+          "mode": "list",
+          "cachedResultName": "test"
+        },
+        "options": {
+          "queryName": "match_test"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        -80,
+        128
+      ],
+      "id": "50a1a382-4bfd-4c36-ad9f-7856d68a0d10",
+      "name": "Supabase Vector Store",
+      "credentials": {
+        "supabaseApi": {
+          "id": "aIinItHZcaQjMv4X",
+          "name": "Omoboye supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        608,
+        256
+      ],
+      "id": "ec17deac-74ec-4c1d-b04a-b627bf4a86f6",
+      "name": "Embeddings OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "pHn8LNUOuQiVIt6g",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "You are my personal tutor for AI agents and workflow automation with n8n. Always check the vector database first and pull any relevant documents before you explain anything. Use those documents to guide the answer. If the database doesn’t have what I need, say the information isn’t available instead of relying on model knowledge."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        336,
+        -176
+      ],
+      "id": "26c77dc5-d82c-4c8a-affa-a1c25bf23394",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Call this tool to look up The Ultimate n8n Starter Kit",
+        "tableName": {
+          "__rl": true,
+          "value": "test",
+          "mode": "list",
+          "cachedResultName": "test"
+        },
+        "options": {
+          "queryName": "match_test"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.3,
+      "position": [
+        528,
+        48
+      ],
+      "id": "344f2112-6de6-4b3e-9c2e-bcb15913590d",
+      "name": "Supabase Vector Store1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "aIinItHZcaQjMv4X",
+          "name": "Omoboye supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        48
+      ],
+      "id": "68030f04-b6df-47cc-ae53-9ceb186bb515",
+      "name": "OpenAI Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "pHn8LNUOuQiVIt6g",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -16,
+        352
+      ],
+      "id": "893f93c6-54cf-401b-a69a-a2122b41ad6d",
+      "name": "Data Loader"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -304,
+        -176
+      ],
+      "id": "8281317d-9e11-44e3-bc21-6c5a20670245",
+      "name": "Telegram",
+      "webhookId": "e6096a60-c160-4287-999a-229aa5a9be00",
+      "credentials": {
+        "telegramApi": {
+          "id": "ocrFkW3NEOKIJxJm",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram').item.json.message.from.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        896,
+        -176
+      ],
+      "id": "40ab7777-c5fb-4d07-8771-48188c6acc6d",
+      "name": "Reply chat",
+      "webhookId": "b4b4bf7e-e9b0-4f55-8f42-5c0d8482203d",
+      "credentials": {
+        "telegramApi": {
+          "id": "ocrFkW3NEOKIJxJm",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7f7d4680-e8ae-4b7a-9021-d8a07d23c8e9",
+              "name": "message.text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -16,
+        -176
+      ],
+      "id": "1aa5a337-0b04-42a6-89ff-6985dcde4c0b",
+      "name": "Edit text"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram').item.json.update_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        48
+      ],
+      "id": "b7d24e34-d42b-4514-aca4-f68a7afaffb4",
+      "name": "Database",
+      "credentials": {
+        "postgres": {
+          "id": "jgqHxguRgwhUi0RP",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Supabase Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase Vector Store": {
+      "main": [
+        []
+      ]
+    },
+    "Supabase Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Supabase Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Reply chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram": {
+      "main": [
+        [
+          {
+            "node": "Edit text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit text": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Database": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "dde9920b-8ce5-4a83-b827-b7768248d8d0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2f894b59ace7ed81c39db28a6cbc49cf242f3b55b389a88028212f642273e05b"
+  },
+  "id": "aG5cD0Ai0ajSxYKs",
+  "tags": []
+}
