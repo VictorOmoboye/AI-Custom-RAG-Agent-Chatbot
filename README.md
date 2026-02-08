@@ -10,7 +10,7 @@ A custom RAG (Retrieval-Augmented Generation) agent built with n8n that allows u
 
 ## Case Study
 ### Learning n8n Through Conversation  
-**Document used:** *“The Ultimate n8n Starter Kit (2025) by Nate Herk”*
+**Document used:** *“The Ultimate n8n Starter Kit (205) by Nate Herk”*
 
 ### Problem
 Many people want to learn n8n and workflow automation, but long PDF guides can be overwhelming. Beginners struggle to search through pages for simple answers. Experienced users also lose time jumping between sections of documentation just to confirm one detail.
